@@ -23,6 +23,7 @@ void Game::run()
 {
 	while (this->window->isOpen())
 	{
+		this->updateDt();
 		this->update();
 		this->render();
 	}
@@ -50,5 +51,17 @@ void Game::render()
 
 	this->window->display();
 }
+
+
+void Game::updateDt()
+{
+	/*Updates the dt variable with the time it takes to update and
+	render one frame*/
+	this->dt = this->dtClock.restart().asSeconds();
+
+	//system("cls");
+	//std::cout << this->dt << "\n";
+}  
+
 
 
